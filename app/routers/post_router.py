@@ -1,5 +1,5 @@
 from typing import List
-
+import os
 from app.database import get_db
 from app.helpers.jwt_utils import get_current_user
 from app.models.post_model import Post
@@ -22,7 +22,7 @@ def get_post_by_id(db: Session, post_id: int) -> Post:
 @posts_router.get("/", response_model=List[PostResponse])
 async def get_posts(db: Session = Depends(get_db)):
     posts = db.query(Post).all()
-    print(posts)
+    print(os.getenv("KEY"))
     return posts
 
 

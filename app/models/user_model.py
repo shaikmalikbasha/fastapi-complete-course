@@ -15,4 +15,4 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.now)
 
-    posts = relationship("Post")
+    posts = relationship("Post", back_populates="user")

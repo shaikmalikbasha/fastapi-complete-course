@@ -16,11 +16,3 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
 
     user = relationship("User")
-    # def to_json(self):
-    #     return {
-    #         "_id": self.id,
-    #         "title": self.title,
-    #         "content": self.content,
-    #         "is_published": self.is_published,
-    #         "created_at": self.created_at,
-    #     }
