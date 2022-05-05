@@ -26,6 +26,18 @@ async def get_posts(db: Session = Depends(get_db)):
     return posts
 
 
+# from fastapi.encoders import jsonable_encoder
+# from fastapi.responses import JSONResponse
+
+
+# @posts_router.get("/", response_model=List[PostResponse])
+# async def get_posts(db: Session = Depends(get_db)):
+#     posts = db.query(Post).all()
+#     json_compatible_item_data = jsonable_encoder(posts)
+
+#     return JSONResponse(content=json_compatible_item_data)
+
+
 @posts_router.post(
     "/", status_code=status.HTTP_201_CREATED, response_model=PostResponse
 )

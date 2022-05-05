@@ -14,7 +14,7 @@ user_router = APIRouter(prefix="/users", tags=["Users"])
 
 @user_router.get("/", response_model=List[UserResponse])
 async def get_users(db: Session = Depends(get_db)):
-    users = db.query(User).all()
+    users = db.query(User).filter_by(is_active=True).all()
 
     print(f"UsersQuery: {users}")
 
